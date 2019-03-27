@@ -8,8 +8,14 @@ namespace TPProjetoI
 {
 	class Program
 	{
+		private static void SeletorDeOpcoes()
+		{
+
+		}
+
 		static void Main(string[] args)
 		{
+			SeletorDeOpcoes();
 		}
 	}
 }
