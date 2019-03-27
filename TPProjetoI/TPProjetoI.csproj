@@ -42,7 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MatematicaDouble.cs" />
     <Compile Include="Contador.cs" />
+    <Compile Include="Matematica.cs" />
     <Compile Include="Produtorio.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
