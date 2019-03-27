@@ -99,17 +99,17 @@ class Matematica
 
 	public void Fibonacci()
 	{
-		List<int> Fibonacci = new List<int>();
-		int a = 0;
-		int b = 1;
+		List<double> Fibonacci = new List<double>();
+		double a = 0;
+        double b = 1;
 		for (int i = 0; i < nInt; i++)
 		{
-			int temp = a;
+            double temp = a;
 			a = b;
 			b = temp + b;
 			Fibonacci.Add(a);
 		}
-		foreach(int n in Fibonacci)
+		foreach(double n in Fibonacci)
 		{
 			Console.WriteLine($"  {n}");
 		}
