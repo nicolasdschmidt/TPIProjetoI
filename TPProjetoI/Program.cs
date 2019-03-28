@@ -1,5 +1,5 @@
 ﻿using System;
-using System.IO;
+using System.IO; // Necessário para ler e escrever arquivos
 using static System.Console;
 using static Utilitarios;
 
