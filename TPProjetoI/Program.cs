@@ -80,7 +80,10 @@ namespace TPProjetoI
 			int n = int.Parse(ReadLine());
 			WriteLine();
 			var mat = new Matematica(n);
-			mat.Fibonacci();
+			foreach (double a in mat.Fibonacci())
+			{
+				WriteLine(a);
+			}
 			EsperarEnter();
 		}
 

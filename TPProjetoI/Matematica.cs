@@ -97,7 +97,7 @@ class Matematica
 		return pot.Valor;
 	}
 
-	public void Fibonacci()
+	/*public void Fibonacci()
 	{
 		List<double> Fibonacci = new List<double>();
 		double a = 0;
@@ -113,6 +113,23 @@ class Matematica
 		{
 			Console.WriteLine($"  {n}");
 		}
+	}*/
+
+	public List<double> Fibonacci()
+	{
+		List<double> Fibonacci = new List<double>();
+		double a = 0;
+		double b = 1;
+		for (int i = 0; i < nInt; i++)
+		{
+			double temp = a;
+			a = b;
+			b = temp + b;
+			Fibonacci.Add(a);
+		}
+		return Fibonacci;
 	}
+
+
 
 }
