@@ -97,7 +97,7 @@ class Matematica
 		return pot.Valor;
 	}
 
-	public List<double> Fibonacci() // Função do tipo List<double>, retorna uma lista de valores reais
+	public List<double> Fibonacci() // Função que retorna uma lista de valores reais
 	{
 		List<double> Fibonacci = new List<double>();
 		double a = 0;
