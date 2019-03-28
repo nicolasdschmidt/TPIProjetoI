@@ -97,12 +97,7 @@ class Matematica
 		return pot.Valor;
 	}
 
-<<<<<<< HEAD
 	public List<double> Fibonacci() // Função do tipo List<double>, retorna uma lista de valores reais
-=======
-
-	public List<double> Fibonacci() //  Método para gerar fibonacci
->>>>>>> 8c7094650088208684e1389f666b5211e67bf7fa
 	{
 		List<double> Fibonacci = new List<double>();
 		double a = 0;
