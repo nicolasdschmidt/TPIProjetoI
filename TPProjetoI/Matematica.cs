@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.Generic; //    Chamando Arquuivo necessário para criar uma lista
 
 class Matematica
 {
@@ -97,25 +97,8 @@ class Matematica
 		return pot.Valor;
 	}
 
-	/*public void Fibonacci()
-	{
-		List<double> Fibonacci = new List<double>();
-		double a = 0;
-        double b = 1;
-		for (int i = 0; i < nInt; i++)
-		{
-            double temp = a;
-			a = b;
-			b = temp + b;
-			Fibonacci.Add(a);
-		}
-		foreach(double n in Fibonacci)
-		{
-			Console.WriteLine($"  {n}");
-		}
-	}*/
 
-	public List<double> Fibonacci()
+	public List<double> Fibonacci() //  Método para gerar fibonacci
 	{
 		List<double> Fibonacci = new List<double>();
 		double a = 0;
