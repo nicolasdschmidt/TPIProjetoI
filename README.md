@@ -20,6 +20,7 @@ Ex. 2:
 
 	início:	
 	fim:	
+	dificuladades:	
 
 Ex. 3: 
 
@@ -44,6 +45,7 @@ Ex. 6:
 
 	início:	
 	fim:	
+	dificuldades:	
 
 
 ## Conclusão
