@@ -12,29 +12,38 @@
 
 Ex. 1: 
 
-	
+	início:	
+	fim:	
+	dificuladades:	
 
 Ex. 2: 
 
-	
+	início:	
+	fim:	
 
 Ex. 3: 
 
-	
+	início:	27/03 07h30
+	fim:	29/03 10h15
+	dificuldades:	encontrar um modo de adaptar o algoritmo para que não houvesse valores negativos, que quebravam a lógica de comparação da margem de erro.
+	resolução:	comparar o módulo da subtração, ao invés do valor eventualmente negativo.
 
 Ex. 4: 
 
-	
+	inicio:	
+	fim:	
+	dificuldades:	
 
 Ex. 5:
 
-	início	27/03 08h30
-	fim	27/03 09h30
-	Uma das maiores dificuldade encontradas foi aprender a usar listas.
+	início:	27/03 08h30
+	fim:	27/03 09h30
+	dificuldades:	aprender a usar listas.
 
 Ex. 6: 
 
-	
+	início:	
+	fim:	
 
 
 ## Conclusão
