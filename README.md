@@ -12,13 +12,13 @@
 
 Ex. 1: 
 
-	início:	
+	início:	27/03 08h00
 	fim:	
 	dificuladades:	
 
 Ex. 2: 
 
-	início:	
+	início:	27/03 09h00
 	fim:	
 	dificuladades:	
 
