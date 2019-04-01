@@ -30,7 +30,7 @@ namespace TPProjetoI
 
                 switch (opcao)
                 {
-                    case 1: break;
+                    case 1: LerArquivo(); break;
                     case 2: break;
                     case 3: AproximacaoDaRaizCubica(); break;
                     case 4: MDCporDivisoes(); break;
@@ -41,25 +41,47 @@ namespace TPProjetoI
             while (opcao != 99);
         }
 
-        private static void LerArquivo()
-        {
-            Clear();
-            var reader = new StreamReader(@"..\..\..\file.txt");
-            while (!reader.EndOfStream)
-            {
-                string linhaLida = reader.ReadLine();
-                double v = double.Parse(linhaLida.Substring(0, 8));
-                double p = double.Parse(linhaLida.Substring(8, 8));
+			private static void LerArquivo()
+		{
+			Clear();
+			WritePos(2, 3, "(localizado na pasta root do projeto)");
+			WritePos(2, 2, "Insira o nome do arquivo texto: ");
+			var caminho = @"..\..\file.txt";
+			try
+			{
+				var arquivo = ReadLine();
+				if (arquivo.EndsWith(".txt"))
+				{
+					caminho = @"..\..\" + arquivo;
+				}
+				else
+				{
+					caminho = @"..\..\" + arquivo + ".txt";
+				}
 
-                var mat = new MatematicaDouble(v);
-                WriteLine($"RMQ = {mat.RaizMediaQuad(p)}");
+				var reader = new StreamReader(caminho);
+				var soma = new Somatoria();
+				while (!reader.EndOfStream)
+				{
+					string linhaLida = reader.ReadLine();
+					double v = double.Parse(linhaLida.Substring(0, 8));
+					double p = double.Parse(linhaLida.Substring(8, 8));
 
-                WriteLine($"MA = {mat.Media}");
-
-                ReadKey();
-            }
-            EsperarEnter();
-        }
+					soma.Somar(v);
+					soma.Somar(p);
+				}
+				WritePos(2, 5, $"RMQ = {Math.Sqrt(soma.MediaAritmetica())}");
+				WritePos(2, 6, $"MA = {soma.MediaAritmetica()}");
+				WritePos(2, 7, $"MP = {caminho}");
+				WritePos(2, 8, $"MG = {caminho}");
+				WritePos(2, 9, $"MH = {caminho}");
+			}
+			catch (Exception)
+			{
+				WritePos(2, 5, $"{caminho}: arquivo inválido");
+			}
+			EsperarEnter();
+		}
 
         private static void CalcularMMC()
         {
