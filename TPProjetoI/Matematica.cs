@@ -125,4 +125,20 @@ class Matematica
         return a;
     }
 
+    public int MDCPorDivisoes(int b) // Função que retorna o MDC de dois valores por subtrações sucessivas, recebendo um valor inteiro
+    {
+        int a = nInt;
+        do 
+        {
+            if (a > b) // Verificando se "a" é maior que "b" para subtrair
+            {
+                a -= b;
+            }
+            if (b > a) // Verificando se "b" é maior que "a" para subtrair
+            {
+                b -= a;
+            }
+        } while(a != b); // Repete até que os dois valores se tornem iguais
+        return a;
+    }
 }

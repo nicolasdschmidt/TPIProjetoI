@@ -1,5 +1,5 @@
 ﻿using System;
-using System.IO; // Necessário para ler e escrever arquivos
+using System.IO; // Necessário para ler e escrever em arquivos
 using static System.Console;
 using static Utilitarios;
 
@@ -30,10 +30,10 @@ namespace TPProjetoI
 
                 switch (opcao)
                 {
-                    case 1: LerArquivo(); break;
-                    case 2: CalcularMMC(); break;
+                    case 1: break;
+                    case 2: break;
                     case 3: AproximacaoDaRaizCubica(); break;
-                    case 4: break;
+                    case 4: MDCporDivisoes(); break;
                     case 5: ListarFibonacci(); break;
                     case 6: break;
                 }
@@ -70,6 +70,21 @@ namespace TPProjetoI
             int b = int.Parse(ReadLine());
             var mat = new Matematica(a);
 
+        }
+
+        private static void MDCporDivisoes()
+        {
+            Clear();
+            WritePos(5, 1, "Calculo de MDC por divisões sucessivas");
+            WritePos(2, 3, "Insira o um dos valores: ");
+            int a = int.Parse(ReadLine()); // Lendo valor para ser calculado e colocando-o em "a"
+            WritePos(2, 4, "Insira o segundo valor: ");
+            int b = int.Parse(ReadLine()); // Lendo o segundo valor e colocando-o em "b"
+
+            var mat = new Matematica(a); // Instanciando objeto da classe Matematica, com parâmetro "a"
+
+            WritePos(2, 6, $"O MDC de {a} e {b} é {mat.MDCPorDivisoes(b)/*Calculando MDC com método do objeto mat, com parâmetro "b"*/}");
+            EsperarEnter();
         }
 
         private static void AproximacaoDaRaizCubica()
