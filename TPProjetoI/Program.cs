@@ -95,18 +95,16 @@ namespace TPProjetoI
             int valor = int.Parse(ReadLine()); // Recebendo o valor a ser calculado
             WritePos(2, 4, "Digite o margem de erro: ");
             double margem = double.Parse(ReadLine());  // Recebendo a margem de erro
-            if (margem >= 0.06 || margem < 0.01) // Verificando se a margem corresponde a um valor menor que 0,06
+            if (margem >= 0.06 || margem < 0.001) // Verificando se a margem corresponde a um valor menor que 0,06
             {
                 WritePos(2, 6, "Valor da margem inválido.");
-                EsperarEnter();
             }
             else
             {
                 var mat = new Matematica(valor); // Instanciado um objeto da classe Matematica
                 WritePos(2, 6, $"O valor aproximado da raíz cúbica de {valor} é {mat.AproximacaoRaizCubica(margem)}");
-                EsperarEnter();
             }
-
+			EsperarEnter();
         }
 
         private static void ListarFibonacci()
