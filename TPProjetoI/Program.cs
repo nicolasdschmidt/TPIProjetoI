@@ -44,8 +44,10 @@ namespace TPProjetoI
 			private static void LerArquivo()
 		{
 			Clear();
-			WritePos(2, 3, "(localizado na pasta root do projeto)");
 			WritePos(2, 2, "Insira o nome do arquivo texto: ");
+			WritePos(2, 3, "(localizado na pasta root do projeto)");
+			WritePos(2, 4, @"..\..\                          .txt");
+			SetCursorPosition(8, 4);
 			var caminho = @"..\..\file.txt";
 			try
 			{
@@ -64,6 +66,7 @@ namespace TPProjetoI
 				var somaV = new Somatoria();
 				var somaP = new Somatoria();
 				var prodGeral = new Produtorio();
+				var somaInversos = new Somatoria();
 				while (!reader.EndOfStream)
 				{
 					string linhaLida = reader.ReadLine();
@@ -76,13 +79,15 @@ namespace TPProjetoI
 					somaP.Somar(p);
 					prodGeral.Multiplicar(v);
 					prodGeral.Multiplicar(p);
+					somaInversos.Somar(1 / v);
+					somaInversos.Somar(1 / p);
 				}
 				var mat = new MatematicaDouble(prodGeral.Valor);
-				WritePos(2, 5, $"RMQ = {Math.Sqrt(somaGeral.MediaAritmetica())}");
-				WritePos(2, 6, $"MA = {somaGeral.MediaAritmetica()}");
-				WritePos(2, 7, $"MP = {somaV.Valor / somaP.Valor}");
-				WritePos(2, 8, $"MG = {mat.EnesimaRaiz(prodGeral.Qtos)}");
-				WritePos(2, 9, $"MH = {caminho}");
+				WritePos(2, 6, $"RMQ = {Math.Sqrt(somaGeral.MediaAritmetica())}");
+				WritePos(2, 7, $"MA = {somaGeral.MediaAritmetica()}");
+				WritePos(2, 8, $"MP = {somaV.Valor / somaP.Valor}");
+				WritePos(2, 9, $"MG = {mat.EnesimaRaiz(prodGeral.Qtos)}");
+				WritePos(2, 10, $"MH = {somaGeral.Valor / somaInversos.Valor}");
 			}
 			catch (Exception)
 			{
