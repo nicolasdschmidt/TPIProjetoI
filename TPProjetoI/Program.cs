@@ -33,7 +33,7 @@ namespace TPProjetoI
                     case 1: LerArquivo(); break;
                     case 2: break;
                     case 3: AproximacaoDaRaizCubica(); break;
-                    case 4: MDCporDivisoes(); break;
+                    case 4: MDCporSubtracoes(); break;
                     case 5: ListarFibonacci(); break;
                     case 6: break;
                 }
@@ -107,11 +107,11 @@ namespace TPProjetoI
 
         }
 
-        private static void MDCporDivisoes()
+        private static void MDCporSubtracoes()
         {
             Clear();
-            WritePos(5, 1, "Calculo de MDC por divisões sucessivas");
-            WritePos(2, 3, "Insira o um dos valores: ");
+            WritePos(5, 1, "Calculo de MDC por subtrações sucessivas");
+            WritePos(2, 3, "Insira o primeiro valor: ");
             int a = int.Parse(ReadLine()); // Lendo valor para ser calculado e colocando-o em "a"
             WritePos(2, 4, "Insira o segundo valor: ");
             int b = int.Parse(ReadLine()); // Lendo o segundo valor e colocando-o em "b"
