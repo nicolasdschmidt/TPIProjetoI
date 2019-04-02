@@ -6,7 +6,7 @@
 	Nícolas Martins de Oliveira	19193
 
 ## Objetivo
-
+Desenvolver um aplicativo de console que realiza tratamento e processamento de diversos tipos de dados, sejam eles inseridos pelo usuário ou presentes em um arquivo de texto existente. O programa usa esses dados para realizar operações e expressões matemáticas, envolvendo grande quantidade de informações e repetições necessárias para os cálculos. Foram utilizadas e alteradas classes úteis já existentes, como Matematica, Contador, Somatória, Produtório e Utilitários, e criadas novas classes, como MatematicaDouble, para servir como auxiliar à classe Matematica no tratamento de números reais e facilitar a resolução dos problemas.
 
 ## Desenvolvimento
 
