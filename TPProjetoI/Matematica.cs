@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic; // Necessário para uso de listas
+using System.Collections.Generic; // necessário para uso de listas
 
 class Matematica
 {
@@ -97,22 +97,22 @@ class Matematica
         return pot.Valor;
     }
 
-    public List<double> Fibonacci() // Função que retorna uma lista de valores reais
+    public List<double> Fibonacci()						// retorna até o n-ésimo termo da lista de Fibonacci
     {
-        List<double> Fibonacci = new List<double>();
-        double a = 0;
-        double b = 1;
-        for (int i = 0; i < nInt; i++)
+        List<double> Fibonacci = new List<double>();	// instanciação de uma lista de valores reais
+        double a = 0;									// definindo os valores
+		double b = 1;									// iniciais da lista
+		for (int i = 0; i < nInt; i++)					// repete nInt vezes
         {
-            double temp = a;
-            a = b;
-            b = temp + b;
-            Fibonacci.Add(a);
+            double temp = a;							// guarda o valor atual em uma variável temporária
+            a = b;                                      // o valor atual recebe o próximo valor
+			b = temp + b;								// calcula o próximo valor usando o valor atual e o valor anterior
+            Fibonacci.Add(a);							// adiciona o valor atual à lista
         }
         return Fibonacci;
     }
 
-    public double AproximacaoRaizCubica(double erro) // retorna a aproximação da raíz cúbica de um valor inteiro
+    public double AproximacaoRaizCubica(double erro)	// retorna a aproximação da raíz cúbica de um valor inteiro
     {
         double palpiteAnterior, palpiteAtual;
 		palpiteAtual = 1;
@@ -125,20 +125,20 @@ class Matematica
         return palpiteAtual;
     }
 
-    public int MDCPorSubtracoes(int b) // retorna o MDC de dois valores pelo método das subtrações sucessivas, recebendo um valor inteiro
+    public int MDCPorSubtracoes(int b)	// retorna o MDC de dois valores pelo método das subtrações sucessivas, recebendo um valor inteiro
     {
-        int a = nInt;
+        int a = nInt;					// a e b são os valores que terão o MDC calculado
         do 
         {
-            if (a > b) // se a é maior que b, faça a = a - b
+            if (a > b)					// se a é maior que b,
             {
-                a -= b;
-            }
-            else if (b > a) // senão se b é maior que a, faça b = b - a
+                a -= b;                 // faça a = a - b
+			}
+            else if (b > a)				// senão se b é maior que a,
 			{
-                b -= a;
-            }
-        } while(a != b); // repete até que os dois valores se tornem iguais
+                b -= a;                 // faça b = b - a
+			}
+        } while(a != b);				// repete até que os dois valores se tornem iguais
         return a;
     }
 }
