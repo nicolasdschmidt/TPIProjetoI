@@ -112,33 +112,33 @@ class Matematica
         return Fibonacci;
     }
 
-    public double AproximacaoRaizCubica(double erro) // Função que retorna a aproximação da raíz cúbica de um valor inteiro
+    public double AproximacaoRaizCubica(double erro) // retorna a aproximação da raíz cúbica de um valor inteiro
     {
-        double a, b;
-        a = 1;
+        double palpiteAnterior, palpiteAtual;
+		palpiteAtual = 1;
         do
         {
-            b = a; // A variável "b" recebendo um palpite("a") 
-            a = (nInt / (b * b) + 2 * b) / 3; // Calculando outro palpite e colocando-a em "a"
+			palpiteAnterior = palpiteAtual;
+			palpiteAtual = (nInt / (palpiteAnterior * palpiteAnterior) + 2 * palpiteAnterior) / 3; // calcula o próximo palpite
 
-        } while (Math.Abs(a - b) > erro);
-        return a;
+        } while (Math.Abs(palpiteAtual - palpiteAnterior) > erro); // repete até que a diferença entre dois palpites seja menor do que o erro
+        return palpiteAtual;
     }
 
-    public int MDCPorDivisoes(int b) // Função que retorna o MDC de dois valores por subtrações sucessivas, recebendo um valor inteiro
+    public int MDCPorSubtracoes(int b) // retorna o MDC de dois valores pelo método das subtrações sucessivas, recebendo um valor inteiro
     {
         int a = nInt;
         do 
         {
-            if (a > b) // Verificando se "a" é maior que "b" para subtrair
+            if (a > b) // se a é maior que b, faça a = a - b
             {
                 a -= b;
             }
-            if (b > a) // Verificando se "b" é maior que "a" para subtrair
-            {
+            else if (b > a) // senão se b é maior que a, faça b = b - a
+			{
                 b -= a;
             }
-        } while(a != b); // Repete até que os dois valores se tornem iguais
+        } while(a != b); // repete até que os dois valores se tornem iguais
         return a;
     }
 }
