@@ -13,8 +13,8 @@
 Ex. 1: 
 
 	início:	27/03 08h00min
-	fim:	
-	dificuladades:	
+	fim:	02/04 08h25min	
+	dificuladades:	adaptar as classes Somatória, Produtório e Matemática para realizar os cálculos necessários.
 
 Ex. 2: 
 
