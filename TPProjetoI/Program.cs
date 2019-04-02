@@ -89,9 +89,10 @@ namespace TPProjetoI
 				WritePos(2, 9, $"MG = {mat.EnesimaRaiz(prodGeral.Qtos)}");
 				WritePos(2, 10, $"MH = {somaGeral.Valor / somaInversos.Valor}");
 			}
-			catch (Exception)
+			catch (Exception e)
 			{
-				WritePos(2, 5, $"{caminho}: arquivo inválido");
+				WritePos(2, 5, "O arquivo não pode ser lido:\n\n");
+				WriteLine(e.Message);
 			}
 			EsperarEnter();
 		}
