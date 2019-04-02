@@ -60,20 +60,28 @@ namespace TPProjetoI
 				}
 
 				var reader = new StreamReader(caminho);
-				var soma = new Somatoria();
+				var somaGeral = new Somatoria();
+				var somaV = new Somatoria();
+				var somaP = new Somatoria();
+				var prodGeral = new Produtorio();
 				while (!reader.EndOfStream)
 				{
 					string linhaLida = reader.ReadLine();
 					double v = double.Parse(linhaLida.Substring(0, 8));
 					double p = double.Parse(linhaLida.Substring(8, 8));
 
-					soma.Somar(v);
-					soma.Somar(p);
+					somaGeral.Somar(v);
+					somaGeral.Somar(p);
+					somaV.Somar(v * p);
+					somaP.Somar(p);
+					prodGeral.Multiplicar(v);
+					prodGeral.Multiplicar(p);
 				}
-				WritePos(2, 5, $"RMQ = {Math.Sqrt(soma.MediaAritmetica())}");
-				WritePos(2, 6, $"MA = {soma.MediaAritmetica()}");
-				WritePos(2, 7, $"MP = {caminho}");
-				WritePos(2, 8, $"MG = {caminho}");
+				var mat = new MatematicaDouble(prodGeral.Valor);
+				WritePos(2, 5, $"RMQ = {Math.Sqrt(somaGeral.MediaAritmetica())}");
+				WritePos(2, 6, $"MA = {somaGeral.MediaAritmetica()}");
+				WritePos(2, 7, $"MP = {somaV.Valor / somaP.Valor}");
+				WritePos(2, 8, $"MG = {mat.EnesimaRaiz(prodGeral.Qtos)}");
 				WritePos(2, 9, $"MH = {caminho}");
 			}
 			catch (Exception)
@@ -105,7 +113,7 @@ namespace TPProjetoI
 
             var mat = new Matematica(a); // Instanciando objeto da classe Matematica, com parâmetro "a"
 
-            WritePos(2, 6, $"O MDC de {a} e {b} é {mat.MDCPorDivisoes(b)/*Calculando MDC com método do objeto mat, com parâmetro "b"*/}");
+            WritePos(2, 6, $"O MDC de {a} e {b} é {mat.MDCPorDivisoes(b)/* Calculando MDC com método do objeto mat, com parâmetro "b" */}");
             EsperarEnter();
         }
 
