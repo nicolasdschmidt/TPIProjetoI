@@ -127,9 +127,9 @@ namespace TPProjetoI
         {
             Clear();
             WritePos(5, 1, "Aproximação de raíz cúbica");
-            WritePos(2, 3, "Digite o a ser calculado: ");
+            WritePos(2, 3, "Digite o valor a ser calculado: ");
             int valor = int.Parse(ReadLine()); // Recebendo o valor a ser calculado
-            WritePos(2, 4, "Digite o margem de erro: ");
+            WritePos(2, 4, "Digite a margem de erro entre 0,001 e 0,06: ");
             double margem = double.Parse(ReadLine());  // Recebendo a margem de erro
             if (margem >= 0.06 || margem < 0.001) // Verificando se a margem corresponde a um valor menor que 0,06
             {
@@ -139,7 +139,8 @@ namespace TPProjetoI
             {
                 var mat = new Matematica(valor); // Instanciado um objeto da classe Matematica
                 WritePos(2, 6, $"O valor aproximado da raíz cúbica de {valor} é {mat.AproximacaoRaizCubica(margem)}");
-            }
+				WritePos(2, 7, $"Arredondando: {Math.Round(mat.AproximacaoRaizCubica(margem))}");
+			}
 			EsperarEnter();
         }
 
