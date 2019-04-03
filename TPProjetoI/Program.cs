@@ -49,7 +49,7 @@ namespace TPProjetoI
 			WritePos(2, 4, @"..\..\                          .txt");
 			SetCursorPosition(8, 4);
 			var caminho = @"..\..\file.txt";
-			try // executar o código verificando por exceções
+			try																	// executar o código verificando por exceções
 			{
 				var arquivo = ReadLine();
 				if (arquivo.EndsWith(".txt"))									// verifica se o usuário inseriu ".txt" no fim do 
@@ -83,13 +83,13 @@ namespace TPProjetoI
 					somaInversos.Somar(1 / p);
 				}																// repete até o fim do arquivo
 				var mat = new MatematicaDouble(prodGeral.Valor);
-				WritePos(2, 6, $"RMQ = {Math.Sqrt(somaGeral.MediaAritmetica())}");
-				WritePos(2, 7, $"MA = {somaGeral.MediaAritmetica()}");
-				WritePos(2, 8, $"MP = {somaV.Valor / somaP.Valor}");
-				WritePos(2, 9, $"MG = {mat.EnesimaRaiz(prodGeral.Qtos)}");
-				WritePos(2, 10, $"MH = {somaGeral.Valor / somaInversos.Valor}");
+				WritePos(2, 6, $"RMQ = {Math.Sqrt(somaGeral.MediaAritmetica())}");		// calcula RMQ como a raiz da MA
+				WritePos(2, 7, $"MA = {somaGeral.MediaAritmetica()}");					// calcula MA
+				WritePos(2, 8, $"MP = {somaV.Valor / somaP.Valor}");					// calcula MP como média entre V com peso e P
+				WritePos(2, 9, $"MG = {mat.EnesimaRaiz(prodGeral.Qtos)}");				// calcula MG como a n-ésima raiz do produto geral
+				WritePos(2, 10, $"MH = {somaGeral.Valor / somaInversos.Valor}");		// calcula MH como a soma geral dividida pela soma dos inversos
 			}
-			catch (Exception e) // receber a exceção e escrever sua mensagem
+			catch (Exception e)													// se houver exceção, recebê-la e escrever sua mensagem
 			{
 				WritePos(2, 5, "O arquivo não pode ser lido:\n\n");
 				WriteLine(e.Message);
