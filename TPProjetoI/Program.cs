@@ -49,18 +49,18 @@ namespace TPProjetoI
 			WritePos(2, 4, @"..\..\                          .txt");
 			SetCursorPosition(8, 4);
 			var caminho = @"..\..\file.txt";
-			try	// executar o código verificando por exceções
+			try // executar o código verificando por exceções
 			{
 				var arquivo = ReadLine();
-				if (arquivo.EndsWith(".txt"))
-				{
+				if (arquivo.EndsWith(".txt"))                               // verifica se o usuário inseriu ".txt" no fim do 
+				{                                                           // nome do arquivo, se não, insere automaticamente
 					caminho = @"..\..\" + arquivo;
 				}
 				else
-				{
-					caminho = @"..\..\" + arquivo + ".txt";
-				}
-
+				{                                                           // também é feita uma concatenação, completando o nome
+					caminho = @"..\..\" + arquivo + ".txt";                 // do arquivo com um comando para voltar duas pastas no
+				}                                                           // sistema de arquivos, de modo a encontrar o arquivo na
+																			// pasta root do projeto, e não em "\bin\Debug"
 				var reader = new StreamReader(caminho);
 				var somaGeral = new Somatoria();
 				var somaV = new Somatoria();
@@ -119,7 +119,7 @@ namespace TPProjetoI
 
 			var mat = new Matematica(a);
 
-			WritePos(2, 6, $"O MDC de {a} e {b} é {mat.MDCPorSubtracoes(b)}");	// calculando MDC entre "a" e "b"
+			WritePos(2, 6, $"O MDC de {a} e {b} é {mat.MDCPorSubtracoes(b)}");  // calculando MDC entre "a" e "b"
 			EsperarEnter();
 		}
 
@@ -128,16 +128,16 @@ namespace TPProjetoI
 			Clear();
 			WritePos(5, 1, "Aproximação de raíz cúbica");
 			WritePos(2, 3, "Digite o valor a ser calculado: ");
-			int valor = int.Parse(ReadLine());									// Recebendo o valor a ser calculado
+			int valor = int.Parse(ReadLine());                                  // Recebendo o valor a ser calculado
 			WritePos(2, 4, "Digite a margem de erro entre 0,001 e 0,06: ");
-			double margem = double.Parse(ReadLine());							// Recebendo a margem de erro
-			if (margem >= 0.06 || margem < 0.001)								// Verificando se a margem corresponde a um valor entre 0.001 e 0.06
+			double margem = double.Parse(ReadLine());                           // Recebendo a margem de erro
+			if (margem >= 0.06 || margem < 0.001)                               // Verificando se a margem corresponde a um valor entre 0.001 e 0.06
 			{
 				WritePos(2, 6, "Valor da margem inválido.");
 			}
 			else
 			{
-				var mat = new Matematica(valor);								// Instanciado objeto da classe Matematica
+				var mat = new Matematica(valor);                                // Instanciado objeto da classe Matematica
 				WritePos(2, 6, $"O valor aproximado da raíz cúbica de {valor} é {mat.AproximacaoRaizCubica(margem)}");
 				WritePos(2, 7, $"Arredondando: {Math.Round(mat.AproximacaoRaizCubica(margem))}");
 			}
