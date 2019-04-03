@@ -69,6 +69,26 @@ class Matematica
         return nInt == aoContrario;
     }
 
+    public bool EhPrimo()
+    {
+        if (nInt % 2 == 0)
+            if (nInt == 2)  // 2 é o único primo par
+                return true;
+            else
+                return false;
+        else // número ímpar
+        {
+            var possivelDivisor = new Contador(3, nInt / 2, 2);
+            int resto = 1;
+            while (resto != 0 && possivelDivisor.Prosseguir())
+            {
+                resto = nInt % possivelDivisor.Valor;
+            }
+
+            return (resto != 0);  // se não achamos resto == 0, o número é primo
+        }
+    }
+
     public int SomaDosDigitos()
     {
         var soma = new Somatoria();
@@ -140,5 +160,54 @@ class Matematica
 			}
         } while(a != b);				// repete até que os dois valores se tornem iguais
         return a;
+    }
+
+    public int MMC(int y)
+    {
+        int numeroInteiro = nInt;
+        do
+        {
+            var cont = new Contador(2, int.MaxValue, 1);
+            var mmc = new Produtorio();
+            bool jaMultiplicado;
+
+            while (true)
+            {
+                var mat = new Matematica(cont.Valor);
+
+                if (mat.EhPrimo())
+                {
+                    jaMultiplicado = false;
+
+                    if (numeroInteiro % cont.Valor == 0)
+                    {
+                        numeroInteiro /= cont.Valor;
+                        jaMultiplicado = true;
+                        mmc.Multiplicar(cont.Valor);
+                    }
+                    if (y % cont.Valor == 0)
+                    {
+                        if (!jaMultiplicado)
+                        {
+                            mmc.Multiplicar(cont.Valor);
+                        }
+
+                        y /= cont.Valor;
+                    }
+
+
+                }
+
+                if (numeroInteiro % cont.Valor != 0 && y % cont.Valor != 0)
+                    cont.Contar();
+
+                if (numeroInteiro == 1 && y == 1)
+                {
+                    return (int)mmc.Valor;
+                }
+
+            }
+        } while (true);
+
     }
 }

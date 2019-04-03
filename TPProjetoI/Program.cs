@@ -31,7 +31,7 @@ namespace TPProjetoI
 				switch (opcao)
 				{
 					case 1: LerArquivo(); break;
-					case 2: break;
+					case 2: CalcularMMC();  break;
 					case 3: AproximacaoDaRaizCubica(); break;
 					case 4: MDCporSubtracoes(); break;
 					case 5: ListarFibonacci(); break;
@@ -99,14 +99,15 @@ namespace TPProjetoI
 
 		private static void CalcularMMC()
 		{
-			Clear();
-			WritePos(2, 1, "Insira o primeiro valor: ");
-			int a = int.Parse(ReadLine());
-			WritePos(2, 2, "Insira o segundo valor: ");
-			int b = int.Parse(ReadLine());
-			var mat = new Matematica(a);
-
-		}
+            Clear();
+            WritePos(2, 1, "Insira o primeiro valor: ");
+            int a = int.Parse(ReadLine());
+            WritePos(2, 2, "Insira o segundo valor: ");
+            int b = int.Parse(ReadLine());
+            var mat = new Matematica(a);
+            WritePos(2, 4, $"O MMC entre {a} e {b} é {mat.MMC(b)}");
+            EsperarEnter();
+        }
 
 		private static void MDCporSubtracoes()
 		{
