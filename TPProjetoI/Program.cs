@@ -52,36 +52,36 @@ namespace TPProjetoI
 			try // executar o código verificando por exceções
 			{
 				var arquivo = ReadLine();
-				if (arquivo.EndsWith(".txt"))                               // verifica se o usuário inseriu ".txt" no fim do 
-				{                                                           // nome do arquivo, se não, insere automaticamente
+				if (arquivo.EndsWith(".txt"))									// verifica se o usuário inseriu ".txt" no fim do 
+				{																// nome do arquivo, se não, insere automaticamente
 					caminho = @"..\..\" + arquivo;
 				}
-				else
-				{                                                           // também é feita uma concatenação, completando o nome
-					caminho = @"..\..\" + arquivo + ".txt";                 // do arquivo com um comando para voltar duas pastas no
-				}                                                           // sistema de arquivos, de modo a encontrar o arquivo na
-																			// pasta root do projeto, e não em "\bin\Debug"
-				var reader = new StreamReader(caminho);
-				var somaGeral = new Somatoria();
-				var somaV = new Somatoria();
-				var somaP = new Somatoria();
-				var prodGeral = new Produtorio();
-				var somaInversos = new Somatoria();
+				else															// também é feita uma concatenação, completando o nome
+				{																// do arquivo com um comando para voltar duas pastas no
+					caminho = @"..\..\" + arquivo + ".txt";						// sistema de arquivos, de modo a encontrar o arquivo na
+				}																// pasta root do projeto, e não em "\bin\Debug"
+
+				var reader = new StreamReader(caminho);							// instancia um StreamReader usando a string concatenada com o arquivo
+				var somaGeral = new Somatoria();								// somatória de todos os números lidos
+				var somaV = new Somatoria();									// somatória dos valores V lidos com peso P
+				var somaP = new Somatoria();									// soamtória apenas dos valores P lidos
+				var prodGeral = new Produtorio();								// produtório de todos os números lidos
+				var somaInversos = new Somatoria();								// somatória dos inversos de todos os números lidos
 				while (!reader.EndOfStream)
 				{
-					string linhaLida = reader.ReadLine();
-					double v = double.Parse(linhaLida.Substring(0, 8));
-					double p = double.Parse(linhaLida.Substring(8, 8));
+					string linhaLida = reader.ReadLine();						// lê a linha e divide os valores em
+					double v = double.Parse(linhaLida.Substring(0, 8));			// v,
+					double p = double.Parse(linhaLida.Substring(8, 8));			// p
 
-					somaGeral.Somar(v);
+					somaGeral.Somar(v);											// adiciona v e p à soma geral
 					somaGeral.Somar(p);
-					somaV.Somar(v * p);
-					somaP.Somar(p);
-					prodGeral.Multiplicar(v);
+					somaV.Somar(v * p);											// adiciona v com peso p à somaV
+					somaP.Somar(p);												// adiciona p à somaP
+					prodGeral.Multiplicar(v);									// adiciona v e p ao produtório geral
 					prodGeral.Multiplicar(p);
-					somaInversos.Somar(1 / v);
+					somaInversos.Somar(1 / v);									// adiciona os inversos de v e p à soma dos inversos
 					somaInversos.Somar(1 / p);
-				}
+				}																// repete até o fim do arquivo
 				var mat = new MatematicaDouble(prodGeral.Valor);
 				WritePos(2, 6, $"RMQ = {Math.Sqrt(somaGeral.MediaAritmetica())}");
 				WritePos(2, 7, $"MA = {somaGeral.MediaAritmetica()}");
@@ -128,16 +128,16 @@ namespace TPProjetoI
 			Clear();
 			WritePos(5, 1, "Aproximação de raíz cúbica");
 			WritePos(2, 3, "Digite o valor a ser calculado: ");
-			int valor = int.Parse(ReadLine());                                  // Recebendo o valor a ser calculado
+			int valor = int.Parse(ReadLine());                                  // recebendo o valor a ser calculado
 			WritePos(2, 4, "Digite a margem de erro entre 0,001 e 0,06: ");
-			double margem = double.Parse(ReadLine());                           // Recebendo a margem de erro
-			if (margem >= 0.06 || margem < 0.001)                               // Verificando se a margem corresponde a um valor entre 0.001 e 0.06
+			double margem = double.Parse(ReadLine());                           // recebendo a margem de erro
+			if (margem >= 0.06 || margem < 0.001)                               // verifica se a margem corresponde a um valor entre 0.001 e 0.06
 			{
 				WritePos(2, 6, "Valor da margem inválido.");
 			}
 			else
 			{
-				var mat = new Matematica(valor);                                // Instanciado objeto da classe Matematica
+				var mat = new Matematica(valor);
 				WritePos(2, 6, $"O valor aproximado da raíz cúbica de {valor} é {mat.AproximacaoRaizCubica(margem)}");
 				WritePos(2, 7, $"Arredondando: {Math.Round(mat.AproximacaoRaizCubica(margem))}");
 			}
