@@ -48,10 +48,10 @@ namespace TPProjetoI
 			WritePos(2, 3, "(localizado na pasta root do projeto)");
 			WritePos(2, 4, @"..\..\                          .txt");
 			SetCursorPosition(8, 4);
-			var caminho = @"..\..\file.txt";
+			string caminho;
 			try																	// executar o código verificando por exceções
 			{
-				var arquivo = ReadLine();
+				string arquivo = ReadLine();
 				if (arquivo.EndsWith(".txt"))									// verifica se o usuário inseriu ".txt" no fim do 
 				{																// nome do arquivo, se não, insere automaticamente
 					caminho = @"..\..\" + arquivo;
