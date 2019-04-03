@@ -29,4 +29,9 @@ class Produtorio
 	{
 		get => produtorio;
 	}
+
+	public int Qtos
+	{
+		get => quantosValoresForamMultiplicados;
+	}
 }

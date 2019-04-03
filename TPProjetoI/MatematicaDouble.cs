@@ -26,4 +26,9 @@ class MatematicaDouble
 		media = soma.MediaAritmetica();
 		return Math.Sqrt(media);
 	}
+
+	public double EnesimaRaiz(int N)
+	{
+		return Math.Pow(nDouble, 1.0 / N);
+	}
 }
