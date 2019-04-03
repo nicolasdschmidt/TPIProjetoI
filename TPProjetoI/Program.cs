@@ -99,14 +99,22 @@ namespace TPProjetoI
 
 		private static void CalcularMMC()
 		{
-            Clear();
-            WritePos(2, 1, "Insira o primeiro valor: ");
-            int a = int.Parse(ReadLine());
-            WritePos(2, 2, "Insira o segundo valor: ");
-            int b = int.Parse(ReadLine());
-            var mat = new Matematica(a);
-            WritePos(2, 4, $"O MMC entre {a} e {b} é {mat.MMC(b)}");
-            EsperarEnter();
+            string opcao;
+            do
+            {
+                Clear();
+                WritePos(10, 1, "MMC");
+                WritePos(2, 3, "Insira o primeiro valor: ");
+                int a = int.Parse(ReadLine());
+                WritePos(2, 4, "Insira o segundo valor: ");
+                int b = int.Parse(ReadLine());
+                var mat = new Matematica(a);
+                WritePos(2, 6, $"O MMC entre {a} e {b} é {mat.MMC(b)}");
+                WritePos(2, 19, "Digite [0] para sair \n");
+                WritePos(2, 20, "Digite [ENTER] para continuar \n");
+                WritePos(2, 21, "Opção: ");
+                opcao = ReadLine();
+            } while (opcao != "0");
         }
 
 		private static void MDCporSubtracoes()
@@ -156,7 +164,8 @@ namespace TPProjetoI
 			{
 				WriteLine(a);
 			}
-			EsperarEnter();
+            WriteLine("Pressione [Enter] para prosseguir: ");
+            ReadLine();
 		}
 
 		static void Main(string[] args)
