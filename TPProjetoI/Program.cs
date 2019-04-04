@@ -181,7 +181,7 @@ namespace TPProjetoI
 					var mat = new Matematica(n);
 					foreach (double a in mat.Fibonacci())
 					{
-						WriteLine(a);
+						WriteLine("  " + a);
 					}
 					WriteLine();
 					WriteLine("  Pressione [Enter] para prosseguir: ");
