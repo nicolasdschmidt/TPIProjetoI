@@ -20,7 +20,7 @@ Ex. 1:
 Ex. 2: 
 
 	início:	27/03 09h00min
-	fim:
+	fim:	03/03 09h00min
 
 Ex. 3: 
 
