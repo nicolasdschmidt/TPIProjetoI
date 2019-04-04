@@ -27,7 +27,7 @@ class MatematicaDouble
 		return Math.Sqrt(media);
 	}
 
-	public double EnesimaRaiz(int N)
+	public double NEsimaRaiz(int N)
 	{
 		return Math.Pow(nDouble, 1.0 / N);
 	}

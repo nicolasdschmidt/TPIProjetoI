@@ -49,10 +49,10 @@ namespace TPProjetoI
 			WritePos(2, 4, @"..\..\                          .txt");
 			SetCursorPosition(8, 4);
 			string caminho;
-			try																	// executar o código verificando por exceções
+			try																	// executa o código verificando por exceções
 			{
 				string arquivo = ReadLine();
-				if (arquivo.EndsWith(".txt"))									// verifica se o usuário inseriu ".txt" no fim do 
+				if (arquivo.EndsWith(".txt"))									// verifica se o usuário inseriu ".txt" no fim do
 				{																// nome do arquivo, se não, insere automaticamente
 					caminho = @"..\..\" + arquivo;
 				}
@@ -64,7 +64,7 @@ namespace TPProjetoI
 				var reader = new StreamReader(caminho);							// instancia um StreamReader usando a string concatenada com o arquivo
 				var somaGeral = new Somatoria();								// somatória de todos os números lidos
 				var somaV = new Somatoria();									// somatória dos valores V lidos com peso P
-				var somaP = new Somatoria();									// soamtória apenas dos valores P lidos
+				var somaP = new Somatoria();									// somatória apenas dos valores P lidos
 				var prodGeral = new Produtorio();								// produtório de todos os números lidos
 				var somaInversos = new Somatoria();								// somatória dos inversos de todos os números lidos
 				while (!reader.EndOfStream)
@@ -86,7 +86,7 @@ namespace TPProjetoI
 				WritePos(2, 6, $"RMQ = {Math.Sqrt(somaGeral.MediaAritmetica())}");		// calcula RMQ como a raiz da MA
 				WritePos(2, 7, $"MA = {somaGeral.MediaAritmetica()}");					// calcula MA
 				WritePos(2, 8, $"MP = {somaV.Valor / somaP.Valor}");					// calcula MP como média entre V com peso e P
-				WritePos(2, 9, $"MG = {mat.EnesimaRaiz(prodGeral.Qtos)}");				// calcula MG como a n-ésima raiz do produto geral
+				WritePos(2, 9, $"MG = {mat.NEsimaRaiz(prodGeral.Qtos)}");				// calcula MG como a n-ésima raiz do produto geral
 				WritePos(2, 10, $"MH = {somaGeral.Valor / somaInversos.Valor}");		// calcula MH como a soma geral dividida pela soma dos inversos
 			}
 			catch (Exception e)													// se houver exceção, recebê-la e escrever sua mensagem
@@ -128,7 +128,7 @@ namespace TPProjetoI
 
 			var mat = new Matematica(a);
 
-			WritePos(2, 6, $"O MDC de {a} e {b} é {mat.MDCPorSubtracoes(b)}");  // calculando MDC entre "a" e "b"
+			WritePos(2, 6, $"O MDC entre {a} e {b} é {mat.MDCPorSubtracoes(b)}");  // calculando MDC entre "a" e "b"
 			EsperarEnter();
 		}
 
@@ -140,7 +140,7 @@ namespace TPProjetoI
 			int valor = int.Parse(ReadLine());                                  // recebendo o valor a ser calculado
 			WritePos(2, 4, "Digite a margem de erro entre 0,001 e 0,06: ");
 			double margem = double.Parse(ReadLine());                           // recebendo a margem de erro
-			if (margem >= 0.06 || margem < 0.001)                               // verifica se a margem corresponde a um valor entre 0.001 e 0.06
+			if (margem > 0.06 || margem < 0.001)								// verifica se a margem corresponde a um valor entre 0.001 e 0.06
 			{
 				WritePos(2, 6, "Valor da margem inválido.");
 			}
