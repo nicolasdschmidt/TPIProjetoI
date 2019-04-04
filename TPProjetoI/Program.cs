@@ -14,18 +14,47 @@ namespace TPProjetoI
 			do
 			{
 				Clear();
-				WritePos(10, 0, "TP - Projeto I");
+				ForegroundColor = ConsoleColor.Yellow;
+				WritePos(10, 1, "TP - Projeto I");
 
-				WritePos(2, 2, "1 – Estatística de uma lista de valores lidos de um arquivo texto");
-				WritePos(2, 3, "2 – MMC entre dois valores digitados");
-				WritePos(2, 4, "3 – Raiz Cúbica de um valor digitado");
-				WritePos(2, 5, "4 – MDC por subtrações sucessivas");
-				WritePos(2, 6, "5 – Lista de números de Fibonacci");
-				WritePos(2, 7, "6 – Seno Hiperbólico");
+				ForegroundColor = ConsoleColor.Yellow;
+				WritePos(2, 3, "1 - ");
+				ForegroundColor = ConsoleColor.Gray;
+				Write("Estatística de uma lista de valores lidos de um arquivo texto");
 
-				WritePos(2, 20, "99 – Terminar o programa");
+				ForegroundColor = ConsoleColor.Yellow;
+				WritePos(2, 4, "2 - ");
+				ForegroundColor = ConsoleColor.Gray;
+				Write("MMC entre dois valores digitados");
 
+				ForegroundColor = ConsoleColor.Yellow;
+				WritePos(2, 5, "3 – ");
+				ForegroundColor = ConsoleColor.Gray;
+				Write("Raiz Cúbica de um valor digitado");
+
+				ForegroundColor = ConsoleColor.Yellow;
+				WritePos(2, 6, "4 – ");
+				ForegroundColor = ConsoleColor.Gray;
+				Write("MDC por subtrações sucessivas");
+
+				ForegroundColor = ConsoleColor.Yellow;
+				WritePos(2, 7, "5 – ");
+				ForegroundColor = ConsoleColor.Gray;
+				Write("Lista de números de Fibonacci");
+
+				ForegroundColor = ConsoleColor.Yellow;
+				WritePos(2, 8, "6 – ");
+				ForegroundColor = ConsoleColor.Gray;
+				Write("Seno Hiperbólico");
+
+				ForegroundColor = ConsoleColor.Yellow;
+				WritePos(2, 20, "99 – ");
+				ForegroundColor = ConsoleColor.Gray;
+				Write("Terminar o programa");
+
+				ForegroundColor = ConsoleColor.Yellow;
 				WritePos(2, 22, "Opção: ");
+				ForegroundColor = ConsoleColor.Gray;
 				opcao = int.Parse(ReadLine());
 
 				switch (opcao)
@@ -111,11 +140,11 @@ namespace TPProjetoI
                 int b = int.Parse(ReadLine());
                 var mat = new Matematica(a);
                 WritePos(2, 6, $"O MMC entre {a} e {b} é {mat.MMC(b)}");
-                WritePos(2, 19, "Digite [0] para sair \n");
+                WritePos(2, 19, "Digite [99] para sair \n");
                 WritePos(2, 20, "Digite [ENTER] para continuar \n");
                 WritePos(2, 21, "Opção: ");
                 opcao = ReadLine();
-            } while (opcao != "0");
+            } while (opcao != "99");
         }
 
 		private static void MDCporSubtracoes()
