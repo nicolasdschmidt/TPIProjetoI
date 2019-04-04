@@ -92,7 +92,8 @@ namespace TPProjetoI
 			catch (Exception e)													// se houver exceção, recebê-la e escrever sua mensagem
 			{
 				WritePos(2, 5, "O arquivo não pode ser lido:\n\n");
-				WriteLine(e.Message);
+				WritePos(2, 6, e.Message);
+				WriteLine();
 			}
 			EsperarEnter();
 		}
@@ -139,16 +140,25 @@ namespace TPProjetoI
 			WritePos(2, 3, "Digite o valor a ser calculado: ");
 			int valor = int.Parse(ReadLine());                                  // recebe o valor a ser calculado
 			WritePos(2, 4, "Digite a margem de erro entre 0,001 e 0,06: ");
-			double margem = double.Parse(ReadLine());                           // recebe a margem de erro
-			if (margem > 0.06 || margem < 0.001)								// verifica se a margem corresponde a um valor entre 0.001 e 0.06
+			double margem;
+			try
 			{
-				WritePos(2, 6, "Valor da margem inválido.");
+				margem = double.Parse(ReadLine());                              // recebe a margem de erro
+				if (margem > 0.06 || margem < 0.001)                            // verifica se a margem corresponde a um valor entre 0.001 e 0.06
+				{
+					throw new Exception("Valor da margem inválido.");
+				}
+				else
+				{
+					var mat = new Matematica(valor);
+					WritePos(2, 6, $"O valor aproximado da raíz cúbica de {valor} é {mat.AproximacaoRaizCubica(margem)}");
+					WritePos(2, 7, $"Arredondando: {Math.Round(mat.AproximacaoRaizCubica(margem))}");
+				}
 			}
-			else
+			catch (Exception e)
 			{
-				var mat = new Matematica(valor);
-				WritePos(2, 6, $"O valor aproximado da raíz cúbica de {valor} é {mat.AproximacaoRaizCubica(margem)}");
-				WritePos(2, 7, $"Arredondando: {Math.Round(mat.AproximacaoRaizCubica(margem))}");
+				WritePos(2, 6, e.Message);
+				WriteLine();
 			}
 			EsperarEnter();
 		}
@@ -157,15 +167,34 @@ namespace TPProjetoI
 		{
 			Clear();
 			WritePos(2, 2, "Insira a quantidade desejada de números de Fibonacci: ");
-			int n = int.Parse(ReadLine());
-			WriteLine();
-			var mat = new Matematica(n);
-			foreach (double a in mat.Fibonacci())
+			int n;
+			try
 			{
-				WriteLine(a);
+				n = int.Parse(ReadLine());
+				if(n <= 0)
+				{
+					throw new Exception("Digite um valor maior que 0.");
+				}
+				else
+				{
+					WriteLine();
+					var mat = new Matematica(n);
+					foreach (double a in mat.Fibonacci())
+					{
+						WriteLine(a);
+					}
+					WriteLine();
+					WriteLine("  Pressione [Enter] para prosseguir: ");
+					ReadLine();
+				}
 			}
-            WriteLine("Pressione [Enter] para prosseguir: ");
-            ReadLine();
+			catch (Exception e)
+			{
+				WriteLine();
+				WritePos(2, 4, e.Message);
+				WriteLine();
+				EsperarEnter();
+			}
 		}
 
 		static void Main(string[] args)
