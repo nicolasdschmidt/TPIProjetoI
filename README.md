@@ -1,5 +1,5 @@
 # Projeto I - Técnicas de Programação
-2019 março/abril - 1º Informática Matutino
+2019 março/abril - Colégio Técnico de Campinas - 1º Informática Matutino
 
 ## Identificação
 
