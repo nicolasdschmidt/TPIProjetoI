@@ -42,8 +42,10 @@ Ex. 5:
 
 Ex. 6: 
 
-	início:	
+	início:	04/04 13h00min
 	fim:	
+	dificuldades:	entender a expressão matemática e codificá-la
+	auxílio da monitoria:	
 
 
 ## Conclusão
