@@ -45,7 +45,7 @@ Ex. 6:
 	início:	04/04 13h00min
 	fim:	
 	dificuldades:	entender a expressão matemática e codificá-la
-	auxílio da monitoria:	
+	auxílio da monitoria:	ajuda na interpretação da expressão matemática
 
 
 ## Conclusão
