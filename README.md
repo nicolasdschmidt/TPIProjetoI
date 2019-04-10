@@ -26,7 +26,8 @@ Ex. 3:
 
 	início:	27/03 07h30min
 	fim:	29/03 10h15min
-	dificuldades:	encontrar um modo de adaptar o algoritmo para que não houvesse valores negativos, que quebravam a lógica de comparação da margem de erro.
+	dificuldades:	encontrar um modo de adaptar o algoritmo para que não houvesse valores negativos, que quebravam a
+	lógica de comparação da margem de erro.
 	resolução:	comparar o módulo da subtração, ao invés do valor eventualmente negativo.
 
 Ex. 4: 
