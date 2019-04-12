@@ -120,13 +120,13 @@ class Matematica
     public List<double> Fibonacci()						// retorna até o n-ésimo termo da lista de Fibonacci
     {
         List<double> Fibonacci = new List<double>();	// instanciação de uma lista de valores reais
-        double a = 0;									// definindo os valores
-		double b = 1;									// iniciais da lista
-		for (int i = 0; i < nInt; i++)					// repete nInt vezes
+        double a = 0;                                   // definindo os valores
+        double b = 1;                                   // iniciais da lista
+        for (int i = 0; i < nInt; i++)					// repete nInt vezes
         {
             double temp = a;							// guarda o valor atual em uma variável temporária
             a = b;                                      // o valor atual recebe o próximo valor
-			b = temp + b;								// calcula o próximo valor usando o valor atual e o valor anterior
+            b = temp + b;								// calcula o próximo valor usando o valor atual e o valor anterior
             Fibonacci.Add(a);							// adiciona o valor atual à lista
         }
         return Fibonacci;
@@ -135,11 +135,11 @@ class Matematica
     public double AproximacaoRaizCubica(double erro)	// retorna a aproximação da raíz cúbica de um valor inteiro
     {
         double palpiteAnterior, palpiteAtual;
-		palpiteAtual = 1;
+        palpiteAtual = 1;
         do
         {
-			palpiteAnterior = palpiteAtual;
-			palpiteAtual = (nInt / (palpiteAnterior * palpiteAnterior) + 2 * palpiteAnterior) / 3; // calcula o próximo palpite
+            palpiteAnterior = palpiteAtual;
+            palpiteAtual = (nInt / (palpiteAnterior * palpiteAnterior) + 2 * palpiteAnterior) / 3; // calcula o próximo palpite
 
         } while (Math.Abs(palpiteAtual - palpiteAnterior) > erro); // repete até que a diferença entre dois palpites seja menor do que o erro
         return palpiteAtual;
@@ -148,66 +148,61 @@ class Matematica
     public int MDCPorSubtracoes(int b)	// retorna o MDC de dois valores pelo método das subtrações sucessivas, recebendo um valor inteiro
     {
         int a = nInt;					// a e b são os valores que terão o MDC calculado
-        do 
+        do
         {
             if (a > b)					// se a é maior que b,
             {
                 a -= b;                 // faça a = a - b
-			}
-            else if (b > a)				// senão se b é maior que a,
-			{
+            }
+            else if (b > a)             // senão se b é maior que a,
+            {
                 b -= a;                 // faça b = b - a
-			}
-        } while(a != b);				// repete até que os dois valores se tornem iguais
+            }
+        } while (a != b);				// repete até que os dois valores se tornem iguais
         return a;
     }
 
     public int MMC(int y)
     {
         int numeroInteiro = nInt;
-        do
+        var cont = new Contador(2, int.MaxValue, 1); // contador que será os divisores
+        var mmc = new Produtorio();     // instancia um produtório que aclculará o MMC
+        bool jaMultiplicado;    // verifica se o valor dividido já foi multiplicado no MMC
+
+        while (true)
         {
-            var cont = new Contador(2, int.MaxValue, 1);
-            var mmc = new Produtorio();
-            bool jaMultiplicado;
+            var mat = new Matematica(cont.Valor);
 
-            while (true)
+            if (mat.EhPrimo())    //verifica se o valor é primo
             {
-                var mat = new Matematica(cont.Valor);
+                jaMultiplicado = false;     // no inicios
 
-                if (mat.EhPrimo())
+                if (numeroInteiro % cont.Valor == 0)    // verifica se o primeiro valor é divisível por cont.Valor
                 {
-                    jaMultiplicado = false;
+                    numeroInteiro /= cont.Valor;    // divide o premeiro numero 
+                    mmc.Multiplicar(cont.Valor);
+                    jaMultiplicado = true;     // cont.Valor já foi multiplicado no MMC 
+                }
 
-                    if (numeroInteiro % cont.Valor == 0)
+                if (y % cont.Valor == 0)    // verifica se o segundo é divisível por cont.Valor
+                {
+                    if (!jaMultiplicado)    // se já foi multiplicado antes, não devemos fazer novamente
                     {
-                        numeroInteiro /= cont.Valor;
-                        jaMultiplicado = true;
                         mmc.Multiplicar(cont.Valor);
                     }
-                    if (y % cont.Valor == 0)
-                    {
-                        if (!jaMultiplicado)
-                        {
-                            mmc.Multiplicar(cont.Valor);
-                        }
 
-                        y /= cont.Valor;
-                    }
-
-
+                    y /= cont.Valor;    // divide o premeiro numero 
                 }
-
-                if (numeroInteiro % cont.Valor != 0 && y % cont.Valor != 0)
-                    cont.Contar();
-
-                if (numeroInteiro == 1 && y == 1)
-                {
-                    return (int)mmc.Valor;
-                }
-
             }
-        } while (true);
 
+            if (numeroInteiro % cont.Valor != 0 && y % cont.Valor != 0)     // verifica se os valor ainda são divisiveis pelo cont.Valor
+                cont.Contar();    // soma um ao contador
+
+            if (numeroInteiro == 1 && y == 1)   // se os dois valores chegaram a 1, o MMC foi encontrado
+            {
+                return (int)mmc.Valor;  // retorna o MMC
+            }
+
+        }
     }
 }

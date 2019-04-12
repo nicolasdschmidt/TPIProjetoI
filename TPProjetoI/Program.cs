@@ -138,13 +138,13 @@ namespace TPProjetoI
                 int a = int.Parse(ReadLine());
                 WritePos(2, 4, "Insira o segundo valor: ");
                 int b = int.Parse(ReadLine());
-                var mat = new Matematica(a);
+                var mat = new Matematica(a);    // instância objeto da classe mat
                 WritePos(2, 6, $"O MMC entre {a} e {b} é {mat.MMC(b)}");
                 WritePos(2, 19, "Digite [99] para sair \n");
                 WritePos(2, 20, "Digite [ENTER] para continuar \n");
                 WritePos(2, 21, "Opção: ");
                 opcao = ReadLine();
-            } while (opcao != "99");
+            } while (opcao != "99");    // repete até o usuário não quiser mais
         }
 
 		private static void MDCporSubtracoes()
