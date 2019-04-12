@@ -132,17 +132,10 @@ class Matematica
         return Fibonacci;
     }
 
-    public double AproximacaoRaizCubica(double erro)	// retorna a aproximação da raíz cúbica de um valor inteiro
+    public double AproximacaoRaizCubica(double palpiteAnterior)	// retorna a aproximação da raíz cúbica de um valor inteiro
     {
-        double palpiteAnterior, palpiteAtual;
-        palpiteAtual = 1;
-        do
-        {
-            palpiteAnterior = palpiteAtual;
-            palpiteAtual = (nInt / (palpiteAnterior * palpiteAnterior) + 2 * palpiteAnterior) / 3; // calcula o próximo palpite
-
-        } while (Math.Abs(palpiteAtual - palpiteAnterior) > erro); // repete até que a diferença entre dois palpites seja menor do que o erro
-        return palpiteAtual;
+        palpiteAnterior = (nInt / (palpiteAnterior * palpiteAnterior) + 2 * palpiteAnterior) / 3; // calcula o próximo palpite
+        return palpiteAnterior;
     }
 
     public int MDCPorSubtracoes(int b)	// retorna o MDC de dois valores pelo método das subtrações sucessivas, recebendo um valor inteiro

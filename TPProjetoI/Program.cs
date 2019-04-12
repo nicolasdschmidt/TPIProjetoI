@@ -162,37 +162,49 @@ namespace TPProjetoI
 			EsperarEnter();
 		}
 
-		private static void AproximacaoDaRaizCubica()
-		{
-			Clear();
-			WritePos(5, 1, "Aproximação de raíz cúbica");
-			WritePos(2, 3, "Digite o valor a ser calculado: ");
-			int valor = int.Parse(ReadLine());                                  // recebe o valor a ser calculado
-			WritePos(2, 4, "Digite a margem de erro entre 0,001 e 0,06: ");
-			double margem;
-			try
-			{
-				margem = double.Parse(ReadLine());                              // recebe a margem de erro
-				if (margem > 0.06 || margem < 0.001)                            // verifica se a margem corresponde a um valor entre 0.001 e 0.06
-				{
-					throw new Exception("Valor da margem inválido.");
-				}
-				else
-				{
-					var mat = new Matematica(valor);
-					WritePos(2, 6, $"O valor aproximado da raíz cúbica de {valor} é {mat.AproximacaoRaizCubica(margem)}");
-					WritePos(2, 7, $"Arredondando: {Math.Round(mat.AproximacaoRaizCubica(margem))}");
-				}
-			}
-			catch (Exception e)
-			{
-				WritePos(2, 6, e.Message);
-				WriteLine();
-			}
-			EsperarEnter();
-		}
+        private static void AproximacaoDaRaizCubica()
+        {
+            Clear();
+            WritePos(5, 1, "Aproximação de raíz cúbica");
+            WritePos(2, 3, "Digite o valor a ser calculado: ");
+            int valor = int.Parse(ReadLine());                                  // recebe o valor a ser calculado
+            WritePos(2, 4, "Digite a margem de erro entre 0,001 e 0,06: ");
+            double margem;
+            try
+            {
+                margem = double.Parse(ReadLine());                              // recebe a margem de erro
+                if (margem > 0.06 || margem < 0.001)                            // verifica se a margem corresponde a um valor entre 0.001 e 0.06
+                {
+                    throw new Exception("Valor da margem inválido.");
+                }
+                else                                                            // faz a operação
+                {
+                    double palpite = 1, palpiteAnterior = 1;
+                    bool primeiraRepeticao = true;
+                    int linha = 8;                                              // número da linha onde a tabela será escrita
+                    WritePos(2, 6, "Palpite");                                  // cabeçalho da tabela
+                    WritePos(15, 6, "Novo Valor");
+                    while (Math.Abs(palpiteAnterior - palpite) > margem || primeiraRepeticao)       // repete até a diferença entre os dois for menor que a margem ou seja a primeira repetição
+                    {
+                        primeiraRepeticao = false;                              // primeiraRepeticao vai se false
+                        var mat = new Matematica(valor);                        // instanciando objeto matemática
+                        palpiteAnterior = palpite;                              // guardando o valor do palpite antigo
+                        WritePos(2, linha, $"{palpite:0.0000}");
+                        palpite = mat.AproximacaoRaizCubica(palpite);           // calcula novo palpite
+                        WritePos(15, linha, $"({valor} / {palpiteAnterior:0.0000} * {palpiteAnterior:0.0000} + 2 * {palpiteAnterior:0.0000}) / {3} = {palpite:0.0000}");    // mostra uma linha da tabela
+                        linha++;                                                // iremos para a próxima linha
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                WritePos(2, 6, e.Message);
+                WriteLine();
+            }
+            EsperarEnter();
+        }
 
-		private static void ListarFibonacci()
+        private static void ListarFibonacci()
 		{
 			Clear();
 			WritePos(2, 2, "Insira a quantidade desejada de números de Fibonacci: ");
