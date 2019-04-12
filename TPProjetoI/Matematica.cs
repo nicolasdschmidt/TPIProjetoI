@@ -168,7 +168,7 @@ class Matematica
 
             if (mat.EhPrimo())    //verifica se o valor é primo
             {
-                jaMultiplicado = false;     // no inicios
+                jaMultiplicado = false;     // no inicio já foi multiplicado recebe false
 
                 if (numeroInteiro % cont.Valor == 0)    // verifica se o primeiro valor é divisível por cont.Valor
                 {
