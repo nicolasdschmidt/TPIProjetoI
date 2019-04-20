@@ -133,16 +133,23 @@ namespace TPProjetoI
             do
             {
                 Clear();
-                WritePos(10, 1, "MMC");
+                ForegroundColor = ConsoleColor.Yellow;
+                WritePos(7, 1, "Calculo de MMC");
+                ForegroundColor = ConsoleColor.Gray;
                 WritePos(2, 3, "Insira o primeiro valor: ");
                 int a = int.Parse(ReadLine());
                 WritePos(2, 4, "Insira o segundo valor: ");
                 int b = int.Parse(ReadLine());
                 var mat = new Matematica(a);    // instância objeto da classe mat
                 WritePos(2, 6, $"O MMC entre {a} e {b} é {mat.MMC(b)}");
-                WritePos(2, 19, "Digite [99] para sair \n");
-                WritePos(2, 20, "Digite [ENTER] para continuar \n");
-                WritePos(2, 21, "Opção: ");
+                WritePos(2, 19, "Digite");
+                ForegroundColor = ConsoleColor.Yellow; Write(" [99] ");
+                ForegroundColor = ConsoleColor.Gray; Write("para sair \n");
+                WritePos(2, 20, "Digite");
+                ForegroundColor = ConsoleColor.Yellow; Write(" [ENTER] ");
+                ForegroundColor = ConsoleColor.Gray; Write("para continuar \n");
+                ForegroundColor = ConsoleColor.Yellow;WritePos(2, 21, "Opção: ");
+                ForegroundColor = ConsoleColor.Gray;
                 opcao = ReadLine();
             } while (opcao != "99");    // repete até o usuário não quiser mais
         }
@@ -150,8 +157,10 @@ namespace TPProjetoI
 		private static void MDCporSubtracoes()
 		{
 			Clear();
-			WritePos(5, 1, "Calculo de MDC por subtrações sucessivas");
-			WritePos(2, 3, "Insira o primeiro valor: ");
+            ForegroundColor = ConsoleColor.Yellow;
+            WritePos(5, 1, "Calculo de MDC por subtrações sucessivas");
+            ForegroundColor = ConsoleColor.Gray;
+            WritePos(2, 3, "Insira o primeiro valor: ");
 			int a = int.Parse(ReadLine());
 			WritePos(2, 4, "Insira o segundo valor: ");
 			int b = int.Parse(ReadLine());
@@ -159,13 +168,15 @@ namespace TPProjetoI
 			var mat = new Matematica(a);
 
 			WritePos(2, 6, $"O MDC entre {a} e {b} é {mat.MDCPorSubtracoes(b)}");  // calcula MDC entre "a" e "b"
-			EsperarEnter();
+			EsperarEnterEstilo();
 		}
 
         private static void AproximacaoDaRaizCubica()
         {
             Clear();
+            ForegroundColor = ConsoleColor.Yellow;
             WritePos(5, 1, "Aproximação de raíz cúbica");
+            ForegroundColor = ConsoleColor.Gray;
             WritePos(2, 3, "Digite o valor a ser calculado: ");
             int valor = int.Parse(ReadLine());                                  // recebe o valor a ser calculado
             WritePos(2, 4, "Digite a margem de erro entre 0,001 e 0,06: ");
@@ -182,8 +193,10 @@ namespace TPProjetoI
                     double palpite = 1, palpiteAnterior = 1;
                     bool primeiraRepeticao = true;
                     int linha = 8;                                              // número da linha onde a tabela será escrita
+                    ForegroundColor = ConsoleColor.Yellow;
                     WritePos(2, 6, "Palpite");                                  // cabeçalho da tabela
                     WritePos(15, 6, "Novo Valor");
+                    ForegroundColor = ConsoleColor.Gray;
                     while (Math.Abs(palpiteAnterior - palpite) > margem || primeiraRepeticao)       // repete até a diferença entre os dois for menor que a margem ou seja a primeira repetição
                     {
                         primeiraRepeticao = false;                              // primeiraRepeticao vai se false
@@ -201,13 +214,16 @@ namespace TPProjetoI
                 WritePos(2, 6, e.Message);
                 WriteLine();
             }
-            EsperarEnter();
+            EsperarEnterEstilo();
         }
 
         private static void ListarFibonacci()
 		{
 			Clear();
-			WritePos(2, 2, "Insira a quantidade desejada de números de Fibonacci: ");
+            ForegroundColor = ConsoleColor.Yellow;
+            WritePos(15, 1, "Sequência de Fibonacci");
+            ForegroundColor = ConsoleColor.Gray;
+            WritePos(2, 3, "Insira a quantidade desejada de números de Fibonacci: ");
 			int n;
 			try
 			{
@@ -225,7 +241,9 @@ namespace TPProjetoI
 						WriteLine("  " + a);
 					}
 					WriteLine();
-					WriteLine("  Pressione [Enter] para prosseguir: ");
+                    Write("  Pressione");
+                    ForegroundColor = ConsoleColor.Yellow; Write(" [Enter] ");
+                    ForegroundColor = ConsoleColor.Gray; Write("para prosseguir: ");
 					ReadLine();
 				}
 			}
@@ -234,7 +252,7 @@ namespace TPProjetoI
 				WriteLine();
 				WritePos(2, 4, e.Message);
 				WriteLine();
-				EsperarEnter();
+				EsperarEnterEstilo();
 			}
 		}
 
