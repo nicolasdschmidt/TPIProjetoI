@@ -198,4 +198,17 @@ class Matematica
 
         }
     }
+
+    public double SinH(double x)
+	{
+		var n = new Contador(0, nInt - 1, 1);
+		var soma = new Somatoria();
+
+		while (n.Prosseguir())
+		{
+			var mat = new Matematica(2 * n.Valor + 1);
+			soma.Somar(1.0 / mat.Fatorial() * mat.Elevado(x));
+		}
+		return soma.Valor;
+	}
 }

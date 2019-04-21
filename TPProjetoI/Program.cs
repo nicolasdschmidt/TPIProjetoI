@@ -64,7 +64,7 @@ namespace TPProjetoI
 					case 3: AproximacaoDaRaizCubica(); break;
 					case 4: MDCporSubtracoes(); break;
 					case 5: ListarFibonacci(); break;
-					case 6: break;
+					case 6: CalcularSinH(); break;
 				}
 			}
 			while (opcao != 99);
@@ -124,7 +124,7 @@ namespace TPProjetoI
 				WritePos(2, 6, e.Message);
 				WriteLine();
 			}
-			EsperarEnter();
+			EsperarEnterEstilo();
 		}
 
 		private static void CalcularMMC()
@@ -254,6 +254,23 @@ namespace TPProjetoI
 				WriteLine();
 				EsperarEnterEstilo();
 			}
+		}
+
+		private static void CalcularSinH()
+		{
+			Clear();
+			ForegroundColor = ConsoleColor.Yellow;
+			WritePos(2, 1, "Cálculo do seno hiperbólico de x");
+			ForegroundColor = ConsoleColor.Gray;
+			WritePos(2, 3, "Insira o ângulo x: ");
+			double x = double.Parse(ReadLine());
+			WritePos(2, 4, "Insira a quantidade de termos: ");
+			int termos = int.Parse(ReadLine());
+
+			var mat = new Matematica(termos);
+			WritePos(2, 6, $"SinH({x}) = {mat.SinH(x)}");
+
+			EsperarEnterEstilo();
 		}
 
 		static void Main(string[] args)
