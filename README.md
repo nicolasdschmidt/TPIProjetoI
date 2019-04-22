@@ -50,3 +50,4 @@ Ex. 6:
 
 
 ## Conclusão
+Concluímos que aprendemos a utilizar listas, interpretar problemas matemáticos e codificá-los, encontrando resoluções alternativas para alguns deles. Aprendemos conceitos como o método de números, e aprimoramos as classes necessárias para o projeto.
